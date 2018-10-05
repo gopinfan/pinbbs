@@ -25,6 +25,7 @@
                 @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="http://placekitten.com/23/23" alt="{{Auth::user()->name}}" class="rounded-circle">
                             {{Auth::user()->name}} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
