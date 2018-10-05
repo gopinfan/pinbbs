@@ -25,11 +25,12 @@
                 @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="http://placekitten.com/23/23" alt="{{Auth::user()->name}}" class="rounded-circle">
+                            <img src="http://placekitten.com/23/23" alt="{{Auth::user()->name}}" class="rounded-circle">
                             {{Auth::user()->name}} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">退出登录</a>
+                            <a class="dropdown-item" href="{{route('users.edit', Auth::id())}}"><i class="fa fa-edit fa-fw"></i>编辑资料</a>
+                            <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><i class="fa fa-fw fa-sign-out-alt"></i>退出登录</a>
                             <form action="{{route('logout')}}" method="post" class="d-none" id="logout-form">
                                 @csrf
                             </form>

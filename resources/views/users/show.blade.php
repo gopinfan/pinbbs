@@ -13,6 +13,9 @@
                             <h5 class="text-center pt-3">{{$user->name}}</h5>
                         </li>
                         <li class="list-group-item">
+                            {{$user->introduction}}
+                        </li>
+                        <li class="list-group-item">
                             注册时间：<span class="text-muted">{{$user->created_at->diffForHumans()}}</span>
                         </li>
                     </ul>

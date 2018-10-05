@@ -13,6 +13,8 @@
 
     @include('layouts._header')
 
+    @include('common.message')
+
     @yield('content')
 
     @include('layouts._footer')

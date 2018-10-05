@@ -5,17 +5,20 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">用户登录</div>
+                <div class="card-header">编辑个人资料</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('users.update', $user->id) }}">
                         @csrf
+                        @method('PUT')
+
+                        @include('common.error')
 
                         <div class="form-group row">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">邮箱</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email', $user->email) }}">
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
@@ -26,40 +29,38 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">密码</label>
+                            <label for="name" class="col-sm-4 col-form-label text-md-right">名称</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name', $user->name) }}">
 
-                                @if ($errors->has('password'))
+                                @if ($errors->has('name'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
+                                        <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <label for="introduction" class="col-sm-4 col-form-label text-md-right">个人简介</label>
 
-                                    <label class="form-check-label" for="remember">
-                                        记住我
-                                    </label>
-                                </div>
+                            <div class="col-md-6">
+                                <textarea id="introduction" class="form-control{{ $errors->has('introduction') ? ' is-invalid' : '' }}" name="introduction" rows="3">{{ old('introduction', $user->introduction) }}</textarea>
+
+                                @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    登录
+                                    保存
                                 </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    忘记密码
-                                </a>
                             </div>
                         </div>
                     </form>
