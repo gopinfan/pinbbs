@@ -211,4 +211,10 @@ return [
 
     ],
 
+    /**
+     * Faker 本地化
+     */
+
+    'faker_locale' => 'zh_CN',
+
 ];
