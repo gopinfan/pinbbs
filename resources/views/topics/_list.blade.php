@@ -11,7 +11,7 @@
                         <span class="float-right small text-muted">{{$topic->updated_at->diffForHumans()}}</span>
                     </h5>
                     <div class="media-meta">
-                        <a href="#">
+                        <a href="{{route('categories.show', $topic->category_id)}}" title="{{$topic->category->name}}">
                             <i class="far fa-folder-open"></i>
                             {{$topic->category->name}}
                         </a>
