@@ -8,7 +8,7 @@
             <div class="col-3">
                 <div class="card">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
+                        <li class="list-group-item text-center">
                             <img src="{{$user->avatar}}" alt="{{$user->name}}" class="img-thumbnail img-responsive">
                             <h5 class="text-center pt-3">{{$user->name}}</h5>
                             <div class="text-muted text-center">{{$user->email}}</div>
@@ -27,9 +27,16 @@
             <div class="col-9">
                 <div class="card">
                     <div class="card-body">
-                        <div class="h3">
-                            {{$user->name}} <small class="text-muted">{{$user->email}}</small>
-                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a href="" class="nav-link active">话题</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">回复</a>
+                            </li>
+                        </ul>
+
+                        @include('users._topics', ['topics' => $user->topics()->recent()->paginate(10)])
                     </div>
                 </div>
             </div>
