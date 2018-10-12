@@ -32,6 +32,11 @@
                         <a class="nav-link" href="{{route('register')}}"><i class="fa fa-fw fa-edit"></i>注册</a>
                     </li>
                 @else
+                    <li class="nav-item {{active_class(if_route('topics.create'))}}">
+                        <a href="{{route('topics.create')}}" class="nav-link" title="新建话题">
+                            <i class="fa fa-fw fa-plus"></i>新建话题
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="{{Auth::user()->avatar}}" alt="{{Auth::user()->name}}" class="rounded-circle img-responsive avatar-navbar">

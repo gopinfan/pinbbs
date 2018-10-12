@@ -18,7 +18,7 @@
 
                 <div class="card">
                     <div class="card-header bg-white">
-                        <ul class="nav nav-pills">
+                        <ul class="nav nav-underline float-left">
                             <li class="nav-item">
                                 <a href="{{Request::url()}}?order=default" class="nav-link {{active_class(!if_query('order','recent'))}}">最后回复</a>
                             </li>
@@ -26,6 +26,10 @@
                                 <a href="{{Request::url()}}?order=recent" class="nav-link {{active_class(if_query('order','recent'))}}">最新发布</a>
                             </li>
                         </ul>
+
+                        <div class="float-right">
+                            <a href="{{route('topics.create')}}" class="btn btn-success px-4">新建话题</a>
+                        </div>
                     </div>
                     <div class="card-body pb-1">
                         @include('topics._list')
@@ -36,8 +40,8 @@
             </div>
             <div class="col-sm-3">
                 <div class="card">
-                    <div class="card-header bg-white">右侧导航栏</div>
-                    <div class="card-body"></div>
+                    <div class="card-body">
+                    </div>
                 </div>
             </div>
         </div>
