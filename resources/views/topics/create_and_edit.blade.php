@@ -26,7 +26,7 @@
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="body">话题内容</label>
                         <textarea name="body" id="body" class="form-control" rows="5" placeholder="请输入话题内容">{{old('body', $topic->body)}}</textarea>
@@ -39,3 +39,23 @@
     </div>
 
 @endsection
+
+@section('styles')
+    <link rel="stylesheet" href="{{asset('editor/css/simditor.css')}}">
+@stop
+
+@section('scripts')
+    <script src="{{asset('editor/js/module.js')}}"></script>
+    <script src="{{asset('editor/js/hotkeys.js')}}"></script>
+    <script src="{{asset('editor/js/uploader.js')}}"></script>
+    <script src="{{asset('editor/js/simditor.js')}}"></script>
+
+    <script>
+        $(document).ready(function () {
+            var editor = new Simditor({
+                textarea: $('#body')
+            })
+        })
+    </script>
+
+@stop

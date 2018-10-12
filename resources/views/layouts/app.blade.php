@@ -7,6 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'PinBBS') - PinBBS</title>
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
+    @yield('styles')
 </head>
 <body class="with-fixed-top with-fixed-bottom">
 <div id="app" class="app-{{route_class()}}">
@@ -21,5 +22,6 @@
 
 </div>
 <script src="{{mix('js/app.js')}}"></script>
+@yield('scripts')
 </body>
 </html>
