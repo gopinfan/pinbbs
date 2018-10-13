@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Handlers\ImageUploadHandler;
 use App\Models\Category;
 use App\Models\Topic;
 use Illuminate\Http\Request;
@@ -43,7 +44,9 @@ class TopicsController extends Controller
     public function edit(Topic $topic)
     {
         $this->authorize('update', $topic);
-        return view('topics.create_and_edit', compact('topic'));
+        $categories = Category::all();
+
+        return view('topics.create_and_edit', compact('topic','categories'));
     }
 
     public function update(TopicRequest $request, Topic $topic)
@@ -60,5 +63,26 @@ class TopicsController extends Controller
         $topic->delete();
 
         return redirect()->route('topics.index')->with('message', 'Deleted successfully.');
+    }
+
+    public function upload(Request $request, ImageUploadHandler $uploadHandler)
+    {
+        $data = [
+            'success' => false,
+            'msg' => '上传失败！',
+            'file_path' => ''
+        ];
+
+        if ($file = $request->upload_file){
+            $result = $uploadHandler->save($file,'topics', Auth::id(), 1024);
+
+            if ($result){
+                $data['file_path'] = $result['path'];
+                $data['msg'] = '上传成功！';
+                $data['success'] = true;
+            }
+        }
+
+        return $data;
     }
 }

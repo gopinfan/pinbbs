@@ -10,7 +10,7 @@
             <div class="card-body">
                 @include('common.error')
 
-                <form action="{{$topic->id ? route('topics.update', $topic->id) : route('topics.store')}}" method="post">
+                <form action="{{$topic->id ? route('topics.update', $topic->id) : route('topics.store')}}" method="post" accept-charset="UTF-8">
                     @csrf
 
                     <div class="form-group">
@@ -53,7 +53,15 @@
     <script>
         $(document).ready(function () {
             var editor = new Simditor({
-                textarea: $('#body')
+                textarea: $('#body'),
+                upload: {
+                    url: '{{route('topics.upload')}}',
+                    params: {_token: '{{csrf_token()}}'},
+                    fileKey: 'upload_file',
+                    connectionCount: 3,
+                    leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+                },
+                pasteImage: true,
             })
         })
     </script>
