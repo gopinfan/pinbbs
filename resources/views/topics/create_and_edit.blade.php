@@ -13,6 +13,10 @@
                 <form action="{{$topic->id ? route('topics.update', $topic->id) : route('topics.store')}}" method="post" accept-charset="UTF-8">
                     @csrf
 
+                    @if($topic->id)
+                        @method('PUT')
+                    @endif
+
                     <div class="form-group">
                         <label for="title">话题标题</label>
                         <input type="text" class="form-control" id="title" name="title" value="{{old('title', $topic->title)}}" placeholder="请输入话题标题" required>
@@ -21,8 +25,9 @@
                     <div class="form-group">
                         <label for="category_id">话题分类</label>
                         <select name="category_id" id="category_id" class="form-control">
+                            <option value="" disabled {{$topic->id?'':'selected'}}>请选择分类</option>
                             @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                <option value="{{$category->id}}" {{$topic->category_id==$category->id?'selected':''}}>{{$category->name}}</option>
                             @endforeach
                         </select>
                     </div>
