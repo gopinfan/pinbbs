@@ -29,10 +29,17 @@
 
                         <hr>
 
-                        <div class="text-right">
-                            <a href="{{route('topics.edit', $topic->id)}}" class="btn btn-outline-primary btn-sm">编辑</a>
-                            <a href="#" class="btn btn-outline-danger btn-sm">删除</a>
-                        </div>
+                        @can('update', $topic)
+                            <div class="text-right">
+                                <a href="{{route('topics.edit', $topic->id)}}" class="btn btn-outline-primary btn-sm">编辑</a>
+
+                                <form action="{{route('topics.destroy', $topic->id)}}" method="post" class="d-inline-block">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-sm btn-outline-danger">删除</button>
+                                </form>
+                            </div>
+                        @endcan
                     </div>
                 </div>
             </div>
