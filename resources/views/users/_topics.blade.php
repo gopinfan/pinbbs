@@ -4,7 +4,7 @@
             <li class="media border-bottom pb-3 mb-3">
                 <div class="media-body">
                     <h5 class="media-heading">
-                        <a href="{{route('topics.show', $topic->id)}}">{{$topic->title}}</a>
+                        <a href="{{$topic->link()}}">{{$topic->title}}</a>
                         <span class="float-right small text-muted">{{$topic->updated_at->diffForHumans()}}</span>
                     </h5>
                     <div class="media-meta">
