@@ -12,13 +12,15 @@
             <div class="col-9">
                 <div class="card">
                     <div class="card-body">
-                        <div class="lead text-center">{{$topic->title}}</div>
+                        <div class="h2 text-center">{{$topic->title}}</div>
                         <div class="p-2 text-center">
-                            {{$topic->created_at->diffForHumans()}}
-                            |
-                            <i class="fa fa-fw fa-eye"></i> {{$topic->view_count}}
-                            |
-                            <i class="far fa-fw fa-comment"></i> {{$topic->reply_count}}
+                            <i class="far fa-fw fa-folder-open"></i>{{$topic->category->name}}
+                            <span class="d-inline-block text-muted px-2">•</span>
+                            <i class="far fa-fw fa-clock"></i>{{$topic->created_at->diffForHumans()}}
+                            <span class="d-inline-block text-muted px-2">•</span>
+                            <i class="far fa-fw fa-eye"></i>{{$topic->view_count}}
+                            <span class="d-inline-block text-muted px-2">•</span>
+                            <i class="far fa-fw fa-comment"></i>{{$topic->reply_count}}
                         </div>
 
                         <hr>
