@@ -29,7 +29,7 @@ class TopicObserver
 
     public function saved(Topic $topic)
     {
-        if (!$topic->slug || $topic->slug != $topic->getOriginal('slug')){
+        if (!$topic->slug || $topic->title != $topic->getOriginal('title')){
             dispatch(new TranslateSlug($topic));
         }
     }
