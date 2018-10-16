@@ -13,14 +13,18 @@
                     <div class="card-body">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
-                                <a href="" class="nav-link active">话题</a>
+                                <a href="{{route('users.show', $user->id)}}" class="nav-link {{active_class(if_query('tab', null))}}">话题</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">回复</a>
+                                <a href="{{route('users.show', [$user->id, 'tab'=>'replies'])}}" class="nav-link {{active_class(if_query('tab', 'replies'))}}">回复</a>
                             </li>
                         </ul>
 
-                        @include('users._topics', ['topics' => $user->topics()->recent()->paginate(10)])
+                        @if(if_query('tab', 'replies'))
+                            @include('users._replies', ['replies' => $user->replies()->with('topic')->latest()->paginate(10)])
+                        @else
+                            @include('users._topics', ['topics' => $user->topics()->recent()->paginate(10)])
+                        @endif
                     </div>
                 </div>
             </div>

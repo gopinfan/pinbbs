@@ -4,7 +4,7 @@
 @section('description', $topic->excerpt)
 
 @section('content')
-    <div class="container mt-3">
+    <div class="container mt-3 mb-3">
         <div class="row">
             <div class="col-3">
                 @include('users._info', ['user'=>$topic->user])
@@ -42,6 +42,17 @@
                                 </form>
                             </div>
                         @endcan
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header bg-white">
+                        话题回复
+                        <span class="text-muted small">共 {{$topic->replies()->count()}} 条</span>
+                    </div>
+                    <div class="card-body">
+                        @include('topics._reply_box', ['topic' => $topic])
+                        @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->latest()->get()])
                     </div>
                 </div>
             </div>
