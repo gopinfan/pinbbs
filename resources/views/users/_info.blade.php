@@ -1,7 +1,9 @@
 <div class="card">
     <ul class="list-group list-group-flush">
         <li class="list-group-item text-center">
-            <img src="{{$user->avatar}}" alt="{{$user->name}}" class="img-thumbnail img-responsive">
+            <a href="{{route('users.show', $user->id)}}">
+                <img src="{{$user->avatar}}" alt="{{$user->name}}" class="img-thumbnail img-responsive">
+            </a>
             <h5 class="text-center pt-3">{{$user->name}}</h5>
             <div class="text-muted text-center">{{$user->email}}</div>
         </li>

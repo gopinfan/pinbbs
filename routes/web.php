@@ -24,3 +24,5 @@ Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 Route::post('upload', 'TopicsController@upload')->name('topics.upload');
 
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
+
+Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);

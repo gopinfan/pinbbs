@@ -37,6 +37,13 @@
                             <i class="fa fa-fw fa-plus"></i>新建话题
                         </a>
                     </li>
+                    @if(Auth::user()->notification_count>0)
+                        <li class="nav-item">
+                            <a href="{{route('notifications.index')}}" class="nav-link" title="消息提醒">
+                                <span class="badge badge-danger badge-pill">{{Auth::user()->notification_count}}</span>
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="{{Auth::user()->avatar}}" alt="{{Auth::user()->name}}" class="rounded-circle img-responsive avatar-navbar">
