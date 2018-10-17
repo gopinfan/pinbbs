@@ -51,7 +51,7 @@
                         <span class="text-muted small">共 {{$topic->replies()->count()}} 条</span>
                     </div>
                     <div class="card-body">
-                        @include('topics._reply_box', ['topic' => $topic])
+                        @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
                         @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->latest()->get()])
                     </div>
                 </div>
