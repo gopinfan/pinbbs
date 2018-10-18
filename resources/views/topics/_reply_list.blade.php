@@ -8,9 +8,15 @@
                 <h5>
                     <a href="{{route('users.show', $reply->user_id)}}">{{$reply->user->name}}</a>
                     <span class="text-muted small" title="{{$reply->created_at}}">{{$reply->created_at->diffForHumans()}}</span>
-                    <span class="float-right">
-                        <a href="#"><i class="fa fa-trash-alt text-muted"></i></a>
-                    </span>
+                    @can('destroy', $reply)
+                        <div class="float-right">
+                            <form action="{{route('replies.destroy', $reply->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash-alt"></i></button>
+                            </form>
+                        </div>
+                    @endcan
                 </h5>
                 {!! $reply->content !!}
             </div>
