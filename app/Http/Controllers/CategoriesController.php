@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Topic;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -16,6 +17,8 @@ class CategoriesController extends Controller
             ->where('category_id', $category->id)
             ->paginate(20);
 
-        return view('topics.index', compact('topics', 'category'));
+        $activeUsers = (new User())->getActiveUsers();
+
+        return view('topics.index', compact('topics', 'category', 'activeUsers'));
     }
 }

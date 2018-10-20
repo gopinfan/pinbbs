@@ -39,10 +39,7 @@
                 </div>
             </div>
             <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body">
-                    </div>
-                </div>
+                @include('topics._sidebar')
             </div>
         </div>
     </div>

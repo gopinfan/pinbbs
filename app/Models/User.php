@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Traits\ActiveUserHelper;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,6 +16,8 @@ class User extends Authenticatable
     }
 
     use HasRoles;
+
+    use ActiveUserHelper;
 
     public function notify($instance)
     {
