@@ -37,5 +37,10 @@ class UsersTableSeeder extends Seeder
         $user->email = 'esinger@qq.com';
         $user->avatar = get_gravatar('esinger@qq.com');
         $user->save();
+
+        $user->assignRole('Founder');
+
+        $user_2 = User::find(2);
+        $user_2->assignRole('Maintainer');
     }
 }
