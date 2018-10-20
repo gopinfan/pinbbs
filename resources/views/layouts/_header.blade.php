@@ -53,7 +53,7 @@
                             <a class="dropdown-item" href="{{route('users.show', Auth::id())}}"><i class="far fa-fw fa-user"></i>个人中心</a>
                             <a class="dropdown-item" href="{{route('users.edit', Auth::id())}}"><i class="far fa-edit fa-fw"></i>编辑资料</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><i class="fa fa-fw fa-sign-out-alt"></i>退出登录</a>
+                            <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()"><i class="fa fa-fw fa-sign-out"></i>退出登录</a>
                             <form action="{{route('logout')}}" method="post" class="d-none" id="logout-form">
                                 @csrf
                             </form>

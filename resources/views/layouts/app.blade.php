@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     @yield('styles')
 </head>
-<body class="with-fixed-top with-fixed-bottom">
+<body class="with-fixed-top">
 <div id="app" class="app-{{route_class()}}">
 
     @include('layouts._header')
