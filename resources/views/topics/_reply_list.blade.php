@@ -13,7 +13,7 @@
                             <form action="{{route('replies.destroy', $reply->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash-alt"></i></button>
+                                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></button>
                             </form>
                         </div>
                     @endcan
