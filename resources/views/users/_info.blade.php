@@ -15,5 +15,9 @@
             <h6>注册时间</h6>
             <div class="text-muted small">{{$user->created_at->diffForHumans()}}</div>
         </li>
+        <li class="list-group-item">
+            <h6>最后活跃</h6>
+            <div class="text-muted small">{{$user->last_actived_at->diffForHumans()}}</div>
+        </li>
     </ul>
 </div>

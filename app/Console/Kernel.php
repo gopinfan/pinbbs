@@ -24,10 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
 
         $schedule->command('pinbbs:calculate-active-user')->hourly();
+
+        $schedule->command('pinbbs:sync-user-actived-at')->dailyAt('00:00');
     }
 
     /**
