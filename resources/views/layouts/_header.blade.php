@@ -26,7 +26,7 @@
             <ul class="navbar-nav">
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}"><i class="fa fa-sign-in-alt fa-fw"></i>登录</a>
+                        <a class="nav-link" href="{{route('login')}}"><i class="fa fa-sign-in fa-fw"></i>登录</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('register')}}"><i class="fa fa-fw fa-edit"></i>注册</a>
